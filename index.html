@@ -1,0 +1,954 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080808">
+
+<title>Bonke Bango | Young Developer</title>
+
+<meta name="description" content="The official developer portfolio of Bonke Bango from South Africa. Discover coding projects, technology interests and achievements.">
+
+<style>
+:root {
+  --bg:#080808;
+  --card:#121212;
+  --gold:#d5ad64;
+  --gold2:#f5dfa9;
+  --white:#f8f6f0;
+  --muted:#aaa49a;
+  --line:rgba(213,173,100,.22);
+}
+
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+
+body {
+  background:var(--bg);
+  color:var(--white);
+  font-family:Arial,sans-serif;
+  line-height:1.7;
+}
+
+a {
+  text-decoration:none;
+  color:inherit;
+}
+
+.container {
+  width:min(1080px,90%);
+  margin:auto;
+}
+
+header {
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(8,8,8,.96);
+  border-bottom:1px solid var(--line);
+}
+
+nav {
+  min-height:75px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo {
+  font-size:25px;
+  font-weight:900;
+  letter-spacing:2px;
+}
+
+.logo span,.gold {
+  color:var(--gold);
+}
+
+.nav-links {
+  display:flex;
+  gap:25px;
+  list-style:none;
+}
+
+.nav-links a {
+  color:var(--muted);
+  font-size:13px;
+}
+
+.nav-links a:hover {
+  color:var(--gold);
+}
+
+.menu {
+  display:none;
+  color:var(--gold);
+  background:none;
+  border:1px solid var(--line);
+  padding:8px 12px;
+  border-radius:7px;
+  font-size:20px;
+}
+
+.hero {
+  min-height:620px;
+  display:flex;
+  align-items:center;
+  background:
+    radial-gradient(ellipse at 85% 30%,
+    rgba(213,173,100,.12),transparent 45%);
+}
+
+.hero-content {
+  padding:90px 0;
+  max-width:750px;
+}
+
+.eyebrow {
+  color:var(--gold);
+  font-size:11px;
+  letter-spacing:4px;
+  font-weight:bold;
+  text-transform:uppercase;
+}
+
+.hero h1 {
+  font-size:clamp(45px,9vw,85px);
+  line-height:1.12;
+  letter-spacing:-3px;
+  margin:22px 0;
+}
+
+.hero h1 span {
+  color:var(--gold);
+}
+
+.hero p {
+  max-width:610px;
+  color:var(--muted);
+  margin-bottom:28px;
+}
+
+.buttons {
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.btn {
+  display:inline-block;
+  padding:12px 22px;
+  border-radius:5px;
+  font-size:13px;
+  font-weight:bold;
+  transition:.3s;
+}
+
+.primary {
+  background:var(--gold);
+  color:#111;
+}
+
+.secondary {
+  border:1px solid var(--line);
+}
+
+.btn:hover {
+  transform:translateY(-3px);
+}
+
+section {
+  padding:85px 0;
+  scroll-margin-top:80px;
+}
+
+.heading {
+  margin-bottom:35px;
+}
+
+.heading h2 {
+  font-size:clamp(30px,5vw,43px);
+  margin-top:10px;
+}
+
+.heading p {
+  color:var(--muted);
+  margin-top:8px;
+}
+
+.grid {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:22px;
+}
+
+.card {
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:28px;
+  transition:.3s;
+}
+
+.card:hover {
+  border-color:var(--gold);
+  transform:translateY(-4px);
+}
+
+.card h3 {
+  color:var(--gold);
+  margin-bottom:12px;
+  font-size:21px;
+}
+
+.card p {
+  color:var(--muted);
+  font-size:14px;
+}
+
+.monogram {
+  min-height:270px;
+  display:grid;
+  place-items:center;
+  background:radial-gradient(circle,#302416,#111);
+  border:1px solid var(--line);
+  border-radius:12px;
+}
+
+.monogram span {
+  font-size:100px;
+  font-weight:900;
+  color:var(--gold);
+}
+
+.about-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
+  align-items:stretch;
+}
+
+.stats {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-top:25px;
+}
+
+.stat {
+  text-align:center;
+  background:#181818;
+  border:1px solid var(--line);
+  padding:16px 5px;
+  border-radius:8px;
+}
+
+.stat strong {
+  display:block;
+  color:var(--gold);
+  font-size:18px;
+}
+
+.stat small {
+  color:var(--muted);
+  font-size:10px;
+}
+
+.skills {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+}
+
+.skill {
+  text-align:center;
+  padding:20px 8px;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:9px;
+}
+
+.skill strong {
+  display:block;
+  color:var(--gold);
+  font-size:14px;
+}
+
+.skill small {
+  color:var(--muted);
+  font-size:11px;
+}
+
+.project {
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:12px;
+  overflow:hidden;
+}
+
+.project-image {
+  height:150px;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(130deg,#332616,#111);
+  font-size:43px;
+  color:var(--gold);
+  font-weight:900;
+}
+
+.project-content {
+  padding:24px;
+}
+
+.project-content h3 {
+  margin:10px 0;
+  font-size:22px;
+}
+
+.project-content p {
+  color:var(--muted);
+  font-size:13px;
+  margin-bottom:18px;
+}
+
+.status {
+  color:var(--gold);
+  font-size:10px;
+  letter-spacing:2px;
+  font-weight:bold;
+}
+
+.tags {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.tags span {
+  padding:5px 10px;
+  border:1px solid var(--line);
+  color:var(--gold2);
+  border-radius:20px;
+  font-size:10px;
+}
+
+.timeline {
+  border-left:2px solid var(--gold);
+  padding-left:24px;
+  margin:22px 0;
+}
+
+.timeline h3 {
+  color:var(--gold);
+  font-size:17px;
+}
+
+.timeline p {
+  color:var(--muted);
+  font-size:13px;
+}
+
+.achievement {
+  text-align:center;
+  padding:40px 20px;
+  background:linear-gradient(140deg,#211a10,#101010);
+  border:1px solid var(--line);
+  border-radius:12px;
+}
+
+.achievement .symbol {
+  font-size:38px;
+  margin-bottom:12px;
+}
+
+.achievement h3 {
+  color:var(--gold);
+  font-size:22px;
+  margin-bottom:10px;
+}
+
+.achievement p {
+  color:var(--muted);
+  font-size:13px;
+}
+
+.contact {
+  text-align:center;
+  padding:55px 22px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:linear-gradient(140deg,#211a10,#101010);
+}
+
+.contact h2 {
+  font-size:clamp(28px,5vw,43px);
+  margin:15px 0;
+}
+
+.contact p {
+  color:var(--muted);
+  margin-bottom:25px;
+}
+
+footer {
+  border-top:1px solid var(--line);
+  padding:25px 0;
+  text-align:center;
+  color:var(--muted);
+  font-size:12px;
+}
+
+footer span {
+  color:var(--gold);
+}
+
+.reveal {
+  opacity:0;
+  transform:translateY(20px);
+  transition:.7s;
+}
+
+.reveal.visible {
+  opacity:1;
+  transform:translateY(0);
+}
+
+@media(max-width:750px) {
+  .menu {
+    display:block;
+  }
+
+  .nav-links {
+    display:none;
+    position:absolute;
+    top:75px;
+    left:0;
+    width:100%;
+    background:#111;
+    flex-direction:column;
+    padding:25px;
+    border-bottom:1px solid var(--line);
+  }
+
+  .nav-links.open {
+    display:flex;
+  }
+
+  .about-grid,.grid {
+    grid-template-columns:1fr;
+  }
+
+  .skills {
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .hero {
+    min-height:560px;
+  }
+
+  section {
+    padding:65px 0;
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {
+    scroll-behavior:auto!important;
+    transition:none!important;
+  }
+
+  .reveal {
+    opacity:1;
+    transform:none;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <nav class="container">
+    <a href="#home" class="logo">BB<span>.</span></a>
+
+    <button class="menu" id="menu"
+      aria-label="Open menu" aria-expanded="false">☰</button>
+
+    <ul class="nav-links" id="links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#journey">Journey</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#contact">Connect</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+<!-- INTRODUCTION -->
+
+<section class="hero" id="home">
+  <div class="container hero-content reveal">
+
+    <div class="eyebrow">
+      YOUNG DEVELOPER · SOUTH AFRICA
+    </div>
+
+    <h1>
+      Hello, I'm<br>
+      <span>Bonke Bango.</span>
+    </h1>
+
+    <p>
+      Welcome to my digital world.
+      I'm an aspiring developer passionate about
+      technology, web development, creativity and
+      transforming ideas into digital experiences.
+      This is where my journey unfolds.
+    </p>
+
+    <div class="buttons">
+      <a href="#projects" class="btn primary">
+        Explore My Projects →
+      </a>
+
+      <a href="#about" class="btn secondary">
+        My Story
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+  <div class="container">
+
+    <div class="heading reveal">
+      <div class="eyebrow">THE PERSON BEHIND THE CODE</div>
+      <h2>About <span class="gold">Me.</span></h2>
+      <p>My background, interests and ambitions.</p>
+    </div>
+
+    <div class="about-grid">
+
+      <div class="card reveal">
+        <h3>My Story</h3>
+
+        <p>
+          My name is Bonke Bango, and I'm a young
+          aspiring developer from South Africa.
+        </p>
+
+        <p>
+          I'm exploring the world of programming,
+          learning how websites work and discovering
+          how technology can solve everyday problems.
+        </p>
+
+        <p>
+          I enjoy creating projects, experimenting
+          with ideas and improving my knowledge
+          one step at a time.
+        </p>
+
+        <p>
+          I believe that learning is a continuous
+          journey and that every project is an
+          opportunity to become better.
+        </p>
+
+        <div class="stats">
+          <div class="stat">
+            <strong>SA</strong>
+            <small>Country</small>
+          </div>
+
+          <div class="stat">
+            <strong>Web</strong>
+            <small>Interest</small>
+          </div>
+
+          <div class="stat">
+            <strong>AI</strong>
+            <small>Interest</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="monogram reveal">
+        <span>BB.</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- INTERESTS -->
+
+<section id="interests">
+  <div class="container">
+
+    <div class="heading reveal">
+      <div class="eyebrow">WHAT INSPIRES ME</div>
+      <h2>My <span class="gold">Interests.</span></h2>
+      <p>Areas of technology I'm excited to explore.</p>
+    </div>
+
+    <div class="grid">
+
+      <div class="card reveal">
+        <h3>Web Development</h3>
+        <p>
+          Creating websites, digital experiences
+          and useful online platforms.
+        </p>
+      </div>
+
+      <div class="card reveal">
+        <h3>Artificial Intelligence</h3>
+        <p>
+          Exploring intelligent technologies
+          and the future of AI.
+        </p>
+      </div>
+
+      <div class="card reveal">
+        <h3>Technology</h3>
+        <p>
+          Learning about innovation, software
+          and emerging digital tools.
+        </p>
+      </div>
+
+      <div class="card reveal">
+        <h3>Problem Solving</h3>
+        <p>
+          Using creativity and logical thinking
+          to develop solutions.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+
+<section id="skills">
+  <div class="container">
+
+    <div class="heading reveal">
+      <div class="eyebrow">MY LEARNING TOOLKIT</div>
+      <h2>Skills & <span class="gold">Technology.</span></h2>
+      <p>Technologies and abilities I'm developing.</p>
+    </div>
+
+    <div class="skills">
+
+      <div class="skill reveal">
+        <strong>HTML5</strong>
+        <small>Web structure</small>
+      </div>
+
+      <div class="skill reveal">
+        <strong>CSS3</strong>
+        <small>Web styling</small>
+      </div>
+
+      <div class="skill reveal">
+        <strong>JavaScript</strong>
+        <small>Interactivity</small>
+      </div>
+
+      <div class="skill reveal">
+        <strong>GitHub</strong>
+        <small>Version control</small>
+      </div>
+
+      <div class="skill reveal">
+        <strong>VSCodroid</strong>
+        <small>Mobile coding</small>
+      </div>
+
+      <div class="skill reveal">
+        <strong>UI Design</strong>
+        <small>Design concepts</small>
+      </div>
+
+      <div class="skill reveal">
+        <strong>Responsive Design</strong>
+        <small>Mobile layouts</small>
+      </div>
+
+      <div class="skill reveal">
+        <strong>Problem Solving</strong>
+        <small>Logical thinking</small>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projects">
+  <div class="container">
+
+    <div class="heading reveal">
+      <div class="eyebrow">BUILT FROM IDEAS</div>
+      <h2>My <span class="gold">Projects.</span></h2>
+      <p>Some of the digital projects I'm working on.</p>
+    </div>
+
+    <div class="grid">
+
+      <article class="project reveal">
+        <div class="project-image">KH.</div>
+
+        <div class="project-content">
+          <div class="status">IN DEVELOPMENT</div>
+
+          <h3>Knowledgehub</h3>
+
+          <p>
+            An educational website concept focused
+            on bringing learning resources and
+            study experiences together.
+          </p>
+
+          <div class="tags">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project reveal">
+        <div class="project-image">TS.</div>
+
+        <div class="project-content">
+          <div class="status">IN DEVELOPMENT</div>
+
+          <h3>TradeSmart AI</h3>
+
+          <p>
+            An educational forex analysis project
+            exploring technical indicators,
+            EMA, RSI and risk awareness.
+          </p>
+
+          <div class="tags">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+            <span>Technical Analysis</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+
+<section id="journey">
+  <div class="container">
+
+    <div class="heading reveal">
+      <div class="eyebrow">MY STORY CONTINUES</div>
+      <h2>The Developer <span class="gold">Journey.</span></h2>
+      <p>Learning, creating and growing.</p>
+    </div>
+
+    <div class="timeline reveal">
+      <h3>01. Discovering Technology</h3>
+      <p>
+        Developing an interest in coding,
+        computers and digital creativity.
+      </p>
+    </div>
+
+    <div class="timeline reveal">
+      <h3>02. Learning to Code</h3>
+      <p>
+        Exploring HTML, CSS and JavaScript
+        through practical projects.
+      </p>
+    </div>
+
+    <div class="timeline reveal">
+      <h3>03. Building Projects</h3>
+      <p>
+        Turning personal ideas into digital
+        experiments such as Knowledgehub
+        and TradeSmart AI.
+      </p>
+    </div>
+
+    <div class="timeline reveal">
+      <h3>04. Growing as a Developer</h3>
+      <p>
+        Improving my skills, sharing my work
+        and discovering new opportunities
+        in technology.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+
+<section id="achievements">
+  <div class="container">
+
+    <div class="heading reveal">
+      <div class="eyebrow">MILESTONES MATTER</div>
+      <h2>My <span class="gold">Achievements.</span></h2>
+      <p>Every milestone is part of the bigger picture.</p>
+    </div>
+
+    <div class="achievement reveal">
+      <div class="symbol">✦</div>
+
+      <h3>Building My Digital Identity</h3>
+
+      <p>
+        Creating my own developer portfolio
+        and taking steps towards sharing
+        my coding journey with the world.
+      </p>
+    </div>
+
+    <div class="achievement reveal" style="margin-top:18px">
+      <div class="symbol">⌘</div>
+
+      <h3>Independent Learning</h3>
+
+      <p>
+        Exploring programming and developing
+        projects using mobile coding tools.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- FUTURE -->
+
+<section id="future">
+  <div class="container">
+
+    <div class="heading reveal">
+      <div class="eyebrow">LOOKING FORWARD</div>
+      <h2>My <span class="gold">Vision.</span></h2>
+    </div>
+
+    <div class="card reveal">
+      <h3>The Future I'm Building</h3>
+
+      <p>
+        I want to continue developing my
+        programming skills, explore advanced
+        technologies and build digital products
+        that are useful to people.
+      </p>
+
+      <p style="margin-top:15px">
+        My journey is still beginning.
+        There is more to learn, more to create
+        and more to discover.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+  <div class="container">
+
+    <div class="contact reveal">
+      <div class="eyebrow">MY DIGITAL PRESENCE</div>
+
+      <h2>Let's build <span class="gold">the future.</span></h2>
+
+      <p>
+        Follow my coding journey and explore
+        my latest projects on GitHub.
+      </p>
+
+      <a
+        href="https://github.com/bonkebango2-web"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn primary">
+        Visit My GitHub →
+      </a>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <p>
+      © <span id="year"></span>
+      <span>Bonke Bango</span> |
+      Built with passion, creativity and curiosity.
+    </p>
+  </div>
+</footer>
+
+<script>
+const menu = document.getElementById("menu");
+const links = document.getElementById("links");
+
+menu.addEventListener("click", () => {
+  const opened = links.classList.toggle("open");
+  menu.setAttribute("aria-expanded", opened);
+  menu.textContent = opened ? "✕" : "☰";
+});
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+  link.addEventListener("click", () => {
+    links.classList.remove("open");
+    menu.setAttribute("aria-expanded", "false");
+    menu.textContent = "☰";
+  });
+});
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+},{threshold:0.12});
+
+document.querySelectorAll(".reveal").forEach(element => {
+  observer.observe(element);
+});
+</script>
+
+</body>
+</html>
